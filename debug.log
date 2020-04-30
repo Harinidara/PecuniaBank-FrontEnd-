@@ -1,0 +1,2 @@
+[0420/155021.204:ERROR:file_io.cc(89)] ReadExactly: expected 152, observed 120
+[0426/000609.607:WARNING:minidump_to_upload_parameters.cc(36)] duplicate key guid, discarding value 35ce1d31-b04f-487c-b150-f9b7ae604e13

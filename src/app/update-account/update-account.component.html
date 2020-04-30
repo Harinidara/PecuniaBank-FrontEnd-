@@ -1,0 +1,27 @@
+<div class="container">
+    <br><br>
+    <h3 class="text-center"><u>Update Account</u></h3>
+    <form>
+        <div class="form-group">
+            <label><b>Enter AccountId :</b></label>
+            <input  type="text" name="accountId" [(ngModel)]="customer.account.accountId"  class="form-control">
+        </div>
+        <div class="form-group">
+            <label><b>Enter Customer Name :</b> </label>
+            <input  type="text" name="customerName" [(ngModel)]="customer.customerName"  class="form-control">
+        </div>
+        <div class="form-group">
+            <label><b>Enter Customer Contact :</b> </label>
+            <input  type="text" name="contactNumber" [(ngModel)]="customer.contactNumber" maxlength="10" class="form-control">
+        </div>
+        <div class="form-group">
+            <label><b>Enter Customer Address :</b> </label>
+            <input  type="text" name="address" [(ngModel)]="customer.address"  class="form-control">
+            
+        </div>
+        <input  type="submit" value="Update"  (click)="updateAccount()" class="btn btn-success">
+
+
+</form>
+<h1>{{result1}}hello</h1>
+</div>

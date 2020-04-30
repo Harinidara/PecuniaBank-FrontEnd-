@@ -1,0 +1,46 @@
+<div class="container">
+    <br><br>
+    <h3 class="text-center"><u>Find Account</u></h3>
+        <div class="form-group">
+            <label><b>Enter AccountId : </b></label>
+            <input required type="text" name="id" [(ngModel)]="accountId" class="form-control">
+            <br>
+            <input type="submit" value="Find" class="btn btn-success" (click)="fetch()">
+        </div>
+</div>
+    <h3> Account details</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>AccountId</th>
+                <th>CustomerName</th>
+                <th>UserName</th>
+                <th>ContactNumber</th>
+                <th>AadharNumber</th>
+                <th>PanNumber</th>
+                <th>DateOfBirth</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Branch</th>
+                <th>AccountType</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{customer.account.accountId}}</td>
+                <td>{{customer.customerName}}</td>
+                <td>{{customer.userName}}</td>
+                <td>{{customer.contactNumber}}</td>
+                <td>{{customer.aadharNumber}}</td>
+                <td>{{customer.panNumber}}</td>
+                <td>{{customer.dateOfBirth}}</td>
+                <td>{{customer.gender}}</td>
+                <td>{{customer.address}}</td>
+                <td>{{customer.account.branch}}</td>
+                <td>{{customer.account.accountType}}</td>
+                <td>{{customer.account.amount}}</td>
+             </tr>
+        </tbody>
+      
+    </table>   
