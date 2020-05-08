@@ -11,33 +11,34 @@ import { Customer } from '../Customer';
 export class UpdateAccountComponent implements OnInit {
   customer: Customer = {
     customerName: '', userName: '', contactNumber: '', aadharNumber: '', panNumber: '', dateOfBirth: '', gender: '', address: '',
-    account: { accountId: '', branch: '', accountType: '', amount: 0 }
-  };
-
-  result: string;
+    account: { accountId: '', branch: '', accountType: '', amount: 0,lastUpdated:null }};
+    result: string;
   result1: any
 
   constructor(private service: BankServiceService, private router: Router) { }
 
   ngOnInit(): void {
   }
-  updateAccount(): void {
+  updateAccount() {
     console.log(this.customer.account.accountId);
     this.service.UpdateAccount(this.customer.account.accountId, this.customer.customerName, this.customer.contactNumber, this.customer.address)
-      .subscribe((data) => {
-        this.result1 = data;
-        console.log(this.result1);
+      .subscribe((data) => 
+        this.result1 = data );
+        console.log(this.result1+"Hi");
         this.result = this.result1;
-        if (this.result == null) {
-          console.log("null");
+        if (this.result1!=null)
+         {
           alert("Could not update account");
         }
-        else {
-          console.log("not null");
-          alert("Account updated successfully");
+        else
+         {
+           
+           console.log(this.result1+"Hello");
+           alert("Account updated successfully");
         }
 
-      });
+     
   }
 
 }
+

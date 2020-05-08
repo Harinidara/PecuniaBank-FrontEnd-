@@ -16,4 +16,6 @@ export interface Account{
     branch:String;
     accountType:String;
     amount:number;
+	lastUpdated:Date;
+
 }

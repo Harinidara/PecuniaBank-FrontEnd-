@@ -11,7 +11,7 @@ import { Customer } from '../Customer';
 export class AddAccountComponent implements OnInit {
   account:Account[];
   customer:Customer={customerName:'',userName:'',contactNumber:'',aadharNumber:'',panNumber:'', dateOfBirth:'', gender:'',address:'',
-   account: {accountId :'', branch:'',accountType:'', amount:0}};
+   account: {accountId :'', branch:'',accountType:'', amount:0,lastUpdated:null}};
     
   constructor(private service:BankServiceService,private router: Router) { }
 
@@ -22,7 +22,7 @@ export class AddAccountComponent implements OnInit {
     console.log(this.customer);
     this.service.AddAccount(this.customer)
           .subscribe( data => {
-            alert("Account created successfully");
+            alert("Your Account was created successfully");
           });
         }
       }

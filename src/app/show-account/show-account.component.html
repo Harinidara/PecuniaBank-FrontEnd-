@@ -1,15 +1,16 @@
-<div class="container">
+<div class="container col-md-6">
     <br><br>
-    <h3 class="text-center"><u>Find Account</u></h3>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"> Find Account </a>
+    </nav>
+    <br><br>
         <div class="form-group">
-            <label><b>Enter AccountId : </b></label>
-            <input required type="text" name="id" [(ngModel)]="accountId" class="form-control">
-            <br>
-            <input type="submit" value="Find" class="btn btn-success" (click)="fetch()">
-        </div>
-</div>
-    <h3> Account details</h3>
-    <table class="table">
+             <label>Enter AccountId:</label>
+         <input required type="text" name="id" [(ngModel)]="accountId" class="form-control">
+                <br>
+                <input type="submit" value="Find" class="btn btn-success" (click)="fetch()">
+             </div>
+        <table *ngIf="check" class="table">
         <thead>
             <tr>
                 <th>AccountId</th>
@@ -42,5 +43,5 @@
                 <td>{{customer.account.amount}}</td>
              </tr>
         </tbody>
-      
-    </table>   
+      </table>
+      </div>   

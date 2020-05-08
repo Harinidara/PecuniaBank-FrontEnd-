@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  BankServiceService } from '../bank-service.service';
+import { BankServiceService } from '../bank-service.service';
 import { Router } from '@angular/router';
 import { Customer } from '../Customer';
 
@@ -10,26 +10,33 @@ import { Customer } from '../Customer';
 })
 export class ShowAccountComponent implements OnInit {
   customer:Customer={customerName:'',userName:'',contactNumber:'',aadharNumber:'',panNumber:'', dateOfBirth:'', gender:'',address:'',
-  account: {accountId :'', branch:'',accountType:'', amount:0}};
+  account: {accountId :'', branch:'',accountType:'', amount:0,lastUpdated:null}};
   accounts:any;
   accountId:String;
-  check:boolean;
+  check:boolean=false;
   constructor(private service:BankServiceService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
-fetch(){
-  this.service.ShowAccountDetails(this.accountId).subscribe((data)=>{
-    this.accounts=data;
-  this.customer=this.accounts;
-  if(this.customer==null){
-    this.check=false;
-    alert("no accountId");
-  }
-  else{
-    alert("succesfull");
-  }  
+  fetch(){
+    console.log(this.accountId);
+    this.service.ShowAccountDetails(this.accountId).subscribe((data)=>{
+      this.accounts=data;
+      console.log(this.accounts);
+    this.customer=this.accounts;
+    console.log('customer:',this.customer);
+    if(this.customer==null){
+      alert("no accountId");
+    }
+    else{
+      this.check=true;
+      console.log(this.customer.account.accountId);
+        
+     
+    }
+  
+  
 });
 }
 }
