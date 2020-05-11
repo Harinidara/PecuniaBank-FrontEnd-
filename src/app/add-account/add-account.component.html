@@ -31,12 +31,21 @@
  <div *ngIf="aadharNumber.errors  && aadharNumber.dirty && aadharNumber.touched" class="alert alert-danger">
         <div *ngIf="aadharNumber.errors.required">AadharNumber required</div>
         <div *ngIf="aadharNumber.errors.minlength">AadharNumber should be 12 digits</div>
+        <div *ngIf="aadharNumber.errors.maxlength">AadharNumber should be 12 digits</div>
     <div [hidden]="!aadharNumber.errors.pattern">& No charecters are allowed</div>
     </div>
 </div>
 <div class="form-group">
     <label>Enter PanNumber:</label>
-    <input type="text"   id="panNumber" required [(ngModel)]="customer.panNumber" pattern="^[A-Za-z0-9]+$" name="panNumber"  class="form-control">
+   <input type="text" pattern="[a-zA-z]{5}[0-9]{4}[a-zA-Z]{1}" minlength="10" maxlength="10" [(ngModel)]="customer.panNumber"
+          name="panNumber" class="form-control" id="panNumber" #panNumber="ngModel" required>
+ <div *ngIf="panNumber.errors  && panNumber.dirty && panNumber.touched" class="alert alert-danger">
+<div [hidden]='!panNumber.required'>Provide PanNumber</div>
+         <div *ngIf="!panNumber.errors.pattern">First Five characters should be alphabets,next 4 should be digits and last character must be alphabet</div>
+        <div *ngIf="panNumber.errors.minlength">PanNumber should be 10 characters</div>
+    <div [hidden]="!panNumber.errors.maxlength">PanNumber should be 10 Characters</div>
+    </div>
+</div>
 </div>
 <div class="form-group">
     <label>Enter DateOfBirth:</label>
@@ -44,7 +53,10 @@
 </div>
 <div class="form-group">
     <label>Enter Gender:</label>
-    <input type="text"   id="gender" required [(ngModel)]="customer.gender" name="gender"  class="form-control">
+    <input type="radio" name="gender" checked>
+<label for="male">Male</label><br>
+<input type="radio" name="gender">
+<label for="female">Female</label><br>
 </div>
 <div class="form-group">
     <label>Enter Address:</label>
