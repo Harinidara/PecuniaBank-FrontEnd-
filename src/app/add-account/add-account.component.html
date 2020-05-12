@@ -37,24 +37,23 @@
 </div>
 <div class="form-group">
     <label>Enter PanNumber:</label>
-   <input type="text" pattern="[a-zA-z]{5}[0-9]{4}[a-zA-Z]{1}" minlength="10" maxlength="10" [(ngModel)]="customer.panNumber"
-          name="panNumber" class="form-control" id="panNumber" #panNumber="ngModel" required>
+<input type="text" pattern="[a-zA-z]{5}[0-9]{4}[a-zA-Z]{1}" minlength="10" maxlength="10" [(ngModel)]="customer.panNumber"
+    name="panNumber" class="form-control" id="panNumber" #panNumber="ngModel" required>
  <div *ngIf="panNumber.errors  && panNumber.dirty && panNumber.touched" class="alert alert-danger">
-<div [hidden]='!panNumber.required'>Provide PanNumber</div>
-         <div *ngIf="!panNumber.errors.pattern">First Five characters should be alphabets,next 4 should be digits and last character must be alphabet</div>
-        <div *ngIf="panNumber.errors.minlength">PanNumber should be 10 characters</div>
-    <div [hidden]="!panNumber.errors.maxlength">PanNumber should be 10 Characters</div>
-    </div>
+    <div *ngIf="panNumber.errors.required">panNumber required</div>
+    <div *ngIf="panNumber.errors.minlength">panNumber should be 10 digits</div>
+<div [hidden]="!panNumber.errors.pattern">First Five characters should be alphabets,next 4 should be digits and last character must be alphabet</div>
+ </div>
 </div>
 <div class="form-group">
     <label>Enter DateOfBirth:</label>
     <input type="text"   id="dateOfBirth" required [(ngModel)]="customer.dateOfBirth" type="date" name="dateOfBirth"  class="form-control">
 </div>
 <div class="form-group">
-    <label for="gender" >Gender</label><br>
+    <label for="gender" >Select Gender</label><br>
 <input type="radio" name="gender">
 <label for="male">Male</label><br>
-<input type="radio" name="gender" checked>
+<input type="radio" name="gender">
 <label for="female">Female</label><br>
 </div>
 <div class="form-group">
